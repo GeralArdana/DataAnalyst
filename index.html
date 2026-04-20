@@ -1,0 +1,856 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mohammad Geral Dewa Ardana | Data Analyst Portfolio</title>
+  <meta
+    name="description"
+    content="Data Analyst portfolio featuring stock analysis, business analytics, dashboarding, certifications, and data storytelling projects."
+  />
+  <style>
+    :root {
+      --bg: #0b1020;
+      --bg-soft: #121935;
+      --card: rgba(255, 255, 255, 0.06);
+      --card-border: rgba(255, 255, 255, 0.12);
+      --text: #edf2ff;
+      --muted: #aeb9d6;
+      --accent: #7aa2ff;
+      --accent-2: #9df2d0;
+      --shadow: 0 20px 60px rgba(0, 0, 0, 0.28);
+      --radius: 22px;
+      --max: 1180px;
+    }
+
+    * {
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: Inter, Arial, Helvetica, sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(122, 162, 255, 0.18), transparent 30%),
+        radial-gradient(circle at top right, rgba(157, 242, 208, 0.1), transparent 25%),
+        linear-gradient(180deg, #09101f 0%, #0d1327 100%);
+      color: var(--text);
+      line-height: 1.65;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+      border-radius: 16px;
+    }
+
+    .container {
+      width: min(var(--max), calc(100% - 32px));
+      margin: 0 auto;
+    }
+
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(14px);
+      background: rgba(11, 16, 32, 0.7);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 16px 0;
+    }
+
+    .brand {
+      font-size: 1rem;
+      font-weight: 800;
+      letter-spacing: 0.2px;
+    }
+
+    .brand span {
+      color: var(--accent-2);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .nav-links a:hover {
+      color: var(--text);
+    }
+
+    .hero {
+      padding: 72px 0 32px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.25fr 0.95fr;
+      gap: 28px;
+      align-items: stretch;
+    }
+
+    .hero-card,
+    .panel,
+    .project-card,
+    .contact-card,
+    .future-card,
+    .cert-card {
+      background: var(--card);
+      border: 1px solid var(--card-border);
+      box-shadow: var(--shadow);
+      border-radius: var(--radius);
+    }
+
+    .hero-card {
+      padding: 42px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: rgba(122, 162, 255, 0.12);
+      color: var(--accent-2);
+      font-size: 0.86rem;
+      font-weight: 700;
+      margin-bottom: 18px;
+    }
+
+    h1 {
+      margin: 0 0 16px;
+      font-size: clamp(2.2rem, 6vw, 4.7rem);
+      line-height: 1.03;
+      letter-spacing: -0.03em;
+    }
+
+    .hero p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 1.05rem;
+      max-width: 760px;
+    }
+
+    .hero-cta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 26px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 13px 18px;
+      border-radius: 12px;
+      font-weight: 700;
+      transition: 0.2s ease;
+      border: 1px solid transparent;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--accent), #8e9cff);
+      color: #0a1020;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      filter: brightness(1.05);
+    }
+
+    .btn-secondary {
+      border-color: rgba(255, 255, 255, 0.14);
+      color: var(--text);
+      background: rgba(255, 255, 255, 0.03);
+    }
+
+    .btn-secondary:hover {
+      transform: translateY(-2px);
+      border-color: rgba(255, 255, 255, 0.28);
+    }
+
+    .hero-side {
+      display: grid;
+      gap: 18px;
+    }
+
+    .panel {
+      padding: 24px;
+    }
+
+    .stat-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      margin-top: 10px;
+    }
+
+    .stat {
+      padding: 18px;
+      border-radius: 16px;
+      background: rgba(255, 255, 255, 0.045);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .stat strong {
+      display: block;
+      font-size: 1.5rem;
+      margin-bottom: 6px;
+    }
+
+    .stat span {
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    section {
+      padding: 34px 0;
+    }
+
+    .section-head {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 22px;
+    }
+
+    .section-head h2 {
+      margin: 0;
+      font-size: clamp(1.5rem, 3vw, 2.2rem);
+      letter-spacing: -0.03em;
+    }
+
+    .section-head p {
+      margin: 0;
+      color: var(--muted);
+      max-width: 700px;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 22px;
+    }
+
+    .panel h3,
+    .project-card h3,
+    .future-card h3,
+    .contact-card h3,
+    .cert-card h3 {
+      margin: 0 0 12px;
+      font-size: 1.18rem;
+    }
+
+    .muted {
+      color: var(--muted);
+    }
+
+    .tag-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 18px;
+    }
+
+    .tag {
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.09);
+      color: var(--text);
+      font-size: 0.9rem;
+    }
+
+    .project-card {
+      overflow: hidden;
+    }
+
+    .project-hero {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 0;
+    }
+
+    .project-content {
+      padding: 34px;
+    }
+
+    .project-image-wrap {
+      padding: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(180deg, rgba(122, 162, 255, 0.08), rgba(255,255,255,0.02));
+      border-left: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .project-label {
+      display: inline-block;
+      margin-bottom: 14px;
+      color: var(--accent-2);
+      font-size: 0.88rem;
+      font-weight: 800;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .project-meta {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+      margin: 20px 0 26px;
+    }
+
+    .meta-box {
+      padding: 16px;
+      border-radius: 16px;
+      background: rgba(255, 255, 255, 0.045);
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .meta-box small {
+      display: block;
+      color: var(--muted);
+      margin-bottom: 8px;
+      font-size: 0.82rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .meta-box strong {
+      font-size: 0.98rem;
+    }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+      margin-top: 18px;
+    }
+
+    ul.clean {
+      margin: 0;
+      padding-left: 18px;
+    }
+
+    ul.clean li {
+      margin-bottom: 8px;
+      color: var(--muted);
+    }
+
+    .project-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 24px;
+    }
+
+    .cert-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .cert-card {
+      padding: 24px;
+    }
+
+    .cert-top {
+      display: flex;
+      align-items: start;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+
+    .cert-badge {
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: rgba(157, 242, 208, 0.12);
+      color: var(--accent-2);
+      font-size: 0.78rem;
+      font-weight: 800;
+      white-space: nowrap;
+    }
+
+    .cert-meta {
+      color: var(--muted);
+      font-size: 0.92rem;
+      margin-bottom: 14px;
+    }
+
+    .cert-card p {
+      margin: 0 0 16px;
+      color: var(--muted);
+    }
+
+    .future-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .future-card {
+      padding: 24px;
+    }
+
+    .future-card p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .contact-card {
+      padding: 30px;
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 22px;
+      align-items: start;
+    }
+
+    .contact-list {
+      display: grid;
+      gap: 12px;
+    }
+
+    .contact-item {
+      padding: 14px 16px;
+      border-radius: 14px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .contact-item small {
+      display: block;
+      color: var(--muted);
+      margin-bottom: 6px;
+    }
+
+    footer {
+      padding: 26px 0 50px;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    @media (max-width: 1024px) {
+      .hero-grid,
+      .about-grid,
+      .project-hero,
+      .contact-card,
+      .future-grid,
+      .cert-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .project-image-wrap {
+        border-left: 0;
+        border-top: 1px solid rgba(255,255,255,0.08);
+      }
+
+      .project-meta {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 680px) {
+      .hero-card,
+      .panel,
+      .future-card,
+      .contact-card,
+      .project-content,
+      .project-image-wrap,
+      .cert-card {
+        padding: 22px;
+      }
+
+      .nav-inner {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .project-meta,
+      .stat-grid,
+      .two-col {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        padding-top: 42px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav class="nav">
+    <div class="container nav-inner">
+      <a class="brand" href="#top">Mohammad Geral Dewa Ardana<span>/Data Analyst</span></a>
+      <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#certifications">Certifications</a>
+        <a href="#featured-project">Featured Project</a>
+        <a href="#future-projects">Future Focus</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="hero" id="top">
+    <div class="container hero-grid">
+      <div class="hero-card">
+        <div class="eyebrow">Data Analyst Portfolio</div>
+        <h1>
+          Turning data into
+          clear business
+          decisions.
+        </h1>
+        <p>
+          I build analytical projects that combine data cleaning, exploration,
+          dashboarding, and insight-driven storytelling. My work focuses on
+          stocks, business performance, finance, sales, marketing, and e-commerce,
+          with an interest in making complex data useful for decision-makers.
+        </p>
+        <div class="hero-cta">
+          <a class="btn btn-primary" href="#featured-project">View Featured Project</a>
+          <a class="btn btn-secondary" href="#certifications">View Certifications</a>
+        </div>
+      </div>
+
+      <div class="hero-side">
+        <div class="panel">
+          <h3>What I do</h3>
+          <div class="stat-grid">
+            <div class="stat">
+              <strong>Data Cleaning</strong>
+              <span>Prepare messy data for reliable analysis</span>
+            </div>
+            <div class="stat">
+              <strong>Dashboarding</strong>
+              <span>Turn numbers into clear visual insights</span>
+            </div>
+            <div class="stat">
+              <strong>Financial Analysis</strong>
+              <span>Evaluate trends, returns, and market movement</span>
+            </div>
+            <div class="stat">
+              <strong>Certified Learning</strong>
+              <span>Validated through data analytics certifications</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="panel">
+          <h3>Current focus</h3>
+          <p class="muted">
+            Building a strong portfolio in stock analysis and business analytics,
+            supported by certification-based learning and hands-on projects.
+          </p>
+          <div class="tag-list">
+            <span class="tag">Python</span>
+            <span class="tag">Google Colab</span>
+            <span class="tag">Looker Studio</span>
+            <span class="tag">PowerPoint</span>
+            <span class="tag">Excel</span>
+            <span class="tag">Financial Data</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section id="about">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <h2>About Me</h2>
+          </div>
+          <p>
+            I am building a portfolio centered on analytical thinking, business understanding,
+            and the ability to communicate insights clearly. I aim to solve real business
+            problems through data, especially in finance and stock-related analysis.
+          </p>
+        </div>
+
+          <div class="panel">
+            <h3>What I want to be known for</h3>
+            <div class="tag-list">
+              <span class="tag">Stock Market Analysis</span>
+              <span class="tag">Business Analytics</span>
+              <span class="tag">Financial Insight</span>
+              <span class="tag">Marketing Analytics</span>
+              <span class="tag">Sales Performance</span>
+              <span class="tag">E-commerce Analysis</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="certifications">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <h2>Certifications</h2>
+          </div>
+          <p>
+            Certifications that support my technical foundation in analytics,
+            data handling, business understanding, and decision-focused reporting.
+          </p>
+        </div>
+
+        <div class="cert-grid">
+          <article class="cert-card">
+            <div class="cert-top">
+              <h3>BNSP Certified Data Analyst</h3>
+              <span class="cert-badge">Certified</span>
+            </div>
+            <div class="cert-meta">BNSP • 2026</div>
+            <p>
+              Recognized certification demonstrating competency in transforming raw data into structured analysis, visual insights, and decision-ready reports. 
+            </p>
+            <a class="btn btn-secondary" href="PASTE_CERT_LINK_HERE" target="_blank">View Certificate</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="featured-project">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <h2>Featured Project</h2>
+          </div>
+          <p>
+            My first portfolio project focuses on long-term stock analysis using BBCA.
+            It demonstrates how I structure a finance-related analysis and communicate
+            insights.
+          </p>
+        </div>
+
+        <article class="project-card">
+          <div class="project-hero">
+            <div class="project-content">
+              <span class="project-label">Project 01</span>
+              <h3>BBCA 10 Year Stock Price Analysis</h3>
+              <p class="muted">
+                An analytical case study examining the long-term movement of Bank Central Asia
+                stock price over a 10-year period (2014-2024) to identify historical trends, price behavior,
+                possible growth patterns, and investment-related observations.
+              </p>
+
+              <div class="project-meta">
+                <div class="meta-box">
+                  <small>Category</small>
+                  <strong>Financial Analytics</strong>
+                </div>
+                <div class="meta-box">
+                  <small>Focus</small>
+                  <strong>Stock Trend Analysis</strong>
+                </div>
+                <div class="meta-box">
+                  <small>Tools</small>
+                  <strong>Colab, Looker, PowerPoint</strong>
+                </div>
+                <div class="meta-box">
+                  <small>Status</small>
+                  <strong>Live Portfolio Project</strong>
+                </div>
+              </div>
+
+              <div class="two-col">
+                <div class="panel" style="padding: 20px;">
+                  <h3>Project Objective</h3>
+                  <ul class="clean">
+                    <li>Study BBCA stock performance across 10 years of historical price data.</li>
+                    <li>Understand long-term stock movement patterns and major fluctuations.</li>
+                    <li>Present insights visually for investors, business learners, and recruiters.</li>
+                    <li>Build a finance-focused analysis workflow from data to presentation.</li>
+                  </ul>
+                </div>
+
+                <div class="panel" style="padding: 20px;">
+                  <h3>My Workflow</h3>
+                  <ul class="clean">
+                    <li>Collected and prepared stock price data for analysis.</li>
+                    <li>Cleaned and structured the dataset in Google Colab.</li>
+                    <li>Explored price movement, trends, and summary metrics.</li>
+                    <li>Created visuals and dashboards to highlight key patterns.</li>
+                    <li>Summarized findings into a presentation-style analysis.</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="two-col">
+                <div class="panel" style="padding: 20px;">
+                  <h3>Key Skills Demonstrated</h3>
+                  <ul class="clean">
+                    <li>Time series interpretation</li>
+                    <li>Financial data preparation</li>
+                    <li>Business-focused insight generation</li>
+                    <li>Visual storytelling and presentation</li>
+                    <li>Analytical communication for non-technical audiences</li>
+                  </ul>
+                </div>
+
+                <div class="panel" style="padding: 20px;">
+                  <h3>Project Deliverables</h3>
+                  <ul class="clean">
+                    <li>Colab notebook for data processing and analysis</li>
+                    <li>Dashboard for visual trend exploration</li>
+                    <li>PowerPoint deck summarizing insights</li>
+                    <li>Portfolio-ready case study presentation</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="project-links">
+                <a class="btn btn-primary" href="PASTE_YOUR_COLAB_LINK_HERE" target="_blank">View Colab Notebook</a>
+                <a class="btn btn-secondary" href="PASTE_YOUR_LOOKER_LINK_HERE" target="_blank">View Dashboard</a>
+                <a class="btn btn-secondary" href="PASTE_YOUR_SLIDES_LINK_HERE" target="_blank">View Slides</a>
+              </div>
+            </div>
+
+            <div class="project-image-wrap">
+              <img src="bbca-project-preview.png" alt="Preview of BBCA 10 year stock analysis project" />
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="future-projects">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <h2>Future Project Roadmap</h2>
+          </div>
+          <p>
+            This portfolio will continue to grow with more applied analytics projects across
+            stocks, business management, marketing, sales, and e-commerce.
+          </p>
+        </div>
+
+        <div class="future-grid">
+          <div class="future-card">
+            <h3>Sales Analytics</h3>
+            <p>
+              Projects analyzing revenue trends, top products, seasonality, customer behavior,
+              and sales performance across periods or business segments.
+            </p>
+          </div>
+
+          <div class="future-card">
+            <h3>Marketing Analytics</h3>
+            <p>
+              Projects focused on campaign performance, funnel conversion, engagement metrics,
+              customer acquisition, and decision-making from marketing data.
+            </p>
+          </div>
+
+          <div class="future-card">
+            <h3>Business Analytics</h3>
+            <p>
+              Projects turning operational data into strategic recommendations, with dashboards,
+              KPI tracking, and insight-driven presentations.
+            </p>
+          </div>
+
+          <div class="future-card">
+            <h3>Finance Analytics</h3>
+            <p>
+              Projects exploring stock performance, valuation indicators, portfolio analysis,
+              financial statement patterns, and business risk insights.
+            </p>
+          </div>
+
+          <div class="future-card">
+            <h3>E-commerce Analytics</h3>
+            <p>
+              Projects examining product sales, traffic, conversion, repeat buyers, and marketplace
+              performance using business and customer data.
+            </p>
+          </div>
+
+          <div class="future-card">
+            <h3>Dashboard Projects</h3>
+            <p>
+              More interactive dashboards in Looker Studio or similar tools that help decision-makers
+              monitor performance quickly and clearly.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <h2>Contact</h2>
+          </div>
+          <p>
+            If you are hiring for data analyst, business analyst, finance analyst, or analytics-related
+            roles, I would be glad to connect.
+          </p>
+        </div>
+
+        <div class="contact-card">
+          <div>
+            <h3>Let’s connect</h3>
+            <p class="muted">
+              Passionate about turning data into business insight. Open to analyst roles, collaborations, and opportunities in data, finance, and business.
+            </p>
+          </div>
+
+          <div class="contact-list">
+            <div class="contact-item">
+              <small>Email</small>
+              <a href="mailto:ardanageral@gmail.com">ardanageral@gmail.com</a>
+            </div>
+            <div class="contact-item">
+              <small>LinkedIn</small>
+              <a href="https://www.linkedin.com/in/mohammad-geral-dewa-ardana-b9405a345/" target="_blank">Mohammad Geral Dewa Ardana</a>
+            </div>
+            <div class="contact-item">
+              <small>GitHub</small>
+              <a href="https://github.com/GeralArdana" target="_blank">GeralArdana</a>
+            </div>
+            <div class="contact-item">
+              <small>CV</small>
+              <a href="PASTE_YOUR_CV_LINK_HERE" target="_blank">View CV</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      © 2026 Mohammad Geral Dewa Ardana. Built as a professional portfolio for data analytics and business-focused projects.
+    </div>
+  </footer>
+</body>
+</html>
